@@ -2,198 +2,488 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Horizonte Viagens | Explore o mundo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voyara Travel — Seu próximo capítulo começa aqui</title>
     <meta
       name="description"
-      content="Descubra destinos incríveis e planeje sua próxima viagem com a Horizonte Viagens."
+      content="Voyara Travel: planejamento de viagens personalizado. Site de demonstração."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="cabecalho">
-      <a href="#inicio" class="logo"> horizonte<span>.</span> </a>
-      <nav class="navegacao">
-        <a href="#inicio">Início</a>
-        <a href="#destinos">Destinos</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato" class="nav-contato">Contato</a>
-      </nav>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="header" id="header">
+      <div class="wrap header-in">
+        <a href="#inicio" class="logo" data-nav>Voyara<span>Travel</span></a>
+        <button
+          class="burger"
+          id="burger"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="Abrir menu"
+        >
+          <i></i><i></i><i></i>
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="#inicio" data-nav>Início</a>
+          <a href="#destinos" data-nav>Destinos</a>
+          <a href="#experiencias" data-nav>Experiências</a>
+          <a href="#sobre" data-nav>Sobre nós</a>
+          <a href="#contato" data-nav>Contato</a>
+          <a href="#planejar" class="btn btn-accent btn-sm" data-nav
+            >Planejar viagem</a
+          >
+        </nav>
+      </div>
     </header>
-    <main>
+
+    <main id="conteudo">
       <section class="hero" id="inicio">
-        <div class="hero-conteudo">
-          <p class="etiqueta">SUA PRÓXIMA AVENTURA COMEÇA AQUI</p>
-
-          <h1>O mundo é grande demais para ficar parado.</h1>
-
-          <p class="hero-descricao">
-            Descubra novos lugares, conheça outras culturas e transforme seus
-            planos em experiências inesquecíveis.
-          </p>
-
-          <a href="#destinos" class="botao-principal">
-            Explorar destinos <span>↗</span>
-          </a>
-
-          <div class="hero-nota">
-            <span class="nota-ponto"></span>
-            Novos destinos. Novas histórias.
-          </div>
-        </div>
-
-        <div class="hero-imagem">
-          <img
-            src="montanha.jpg"
-            alt="Montanhas imponentes cercadas por uma paisagem natural"
-          />
-
-          <div class="imagem-legenda">
-            <span>EXPLORE SEM LIMITES</span>
-            <strong>Seu próximo capítulo começa aqui.</strong>
-          </div>
-        </div>
-      </section>
-
-      <section class="destinos" id="destinos">
-        <div class="secao-cabecalho">
-          <div>
-            <p class="etiqueta">LUGARES EXTRAORDINÁRIOS</p>
-            <h2>Para onde vamos?</h2>
-          </div>
-
+        <img
+          class="hero-img"
+          src="hero-praia.jpg"
+          alt="Praia de águas turquesa ao amanhecer"
+        />
+        <div class="hero-shade"></div>
+        <div class="wrap hero-txt">
+          <h1>Seu próximo capítulo começa aqui.</h1>
           <p>
-            Escolha seu próximo destino e comece a imaginar sua próxima grande
-            aventura.
+            Descubra lugares extraordinários e transforme seus planos em
+            experiências inesquecíveis.
           </p>
+          <div class="actions">
+            <a href="#destinos" class="btn btn-accent" data-nav
+              >Explorar destinos</a
+            >
+            <a href="#planejar" class="btn btn-ghost" data-nav
+              >Planejar minha viagem</a
+            >
+          </div>
         </div>
+        <a
+          href="#busca"
+          class="scroll-cue"
+          data-nav
+          aria-label="Continuar rolando"
+          ><span></span
+        ></a>
+      </section>
 
-        <div class="destinos-lista">
-          <article class="destino-card">
-            <img
-              src="japao.jpg"
-              alt="Rua tradicional de Kyoto, no Japão"
-            />
+      <section class="wrap search-wrap" id="busca">
+        <form class="search reveal" id="searchForm" novalidate>
+          <div class="field">
+            <label for="sDest">Destino</label>
+            <select id="sDest" required></select
+            ><small class="err" id="sDestErr"></small>
+          </div>
+          <div class="field">
+            <label for="sIn">Data de ida</label
+            ><input type="date" id="sIn" required /><small
+              class="err"
+              id="sInErr"
+            ></small>
+          </div>
+          <div class="field">
+            <label for="sOut">Data de volta</label
+            ><input type="date" id="sOut" required /><small
+              class="err"
+              id="sOutErr"
+            ></small>
+          </div>
+          <div class="field">
+            <label for="sTrav">Viajantes</label
+            ><input
+              type="number"
+              id="sTrav"
+              min="1"
+              max="20"
+              value="2"
+              required
+            /><small class="err" id="sTravErr"></small>
+          </div>
+          <div class="field">
+            <label for="sType">Experiência</label>
+            <select id="sType">
+              <option value="">Qualquer</option>
+              <option value="Natureza">Aventura</option>
+              <option value="Cultura">Cultura</option>
+              <option value="Praias">Relaxamento</option>
+              <option value="Cidades">Grandes cidades</option>
+            </select>
+          </div>
+          <button class="btn btn-accent" type="submit">
+            Encontrar viagens
+          </button>
+        </form>
+        <p class="status" id="searchMsg" role="status" aria-live="polite"></p>
+      </section>
 
-            <div class="destino-info">
-              <span>ÁSIA</span>
-              <h3>Japão</h3>
-              <p>Tradição, tecnologia e paisagens fascinantes.</p>
-              <a href="#contato">Descobrir destino ↗</a>
-            </div>
-          </article>
-
-          <article class="destino-card">
-            <img
-              src="paris.jpg"
-              alt="Torre Eiffel e paisagem urbana de Paris"
-            />
-
-            <div class="destino-info">
-              <span>EUROPA</span>
-              <h3>Paris</h3>
-              <p>Arquitetura, arte e experiências memoráveis.</p>
-              <a href="#contato">Descobrir destino ↗</a>
-            </div>
-          </article>
-
-          <article class="destino-card">
-            <img
-              src="italia.jpg"
-              alt="Casas coloridas em uma paisagem costeira italiana"
-            />
-
-            <div class="destino-info">
-              <span>EUROPA</span>
-              <h3>Itália</h3>
-              <p>História, gastronomia e cidades encantadoras.</p>
-              <a href="#contato">Descobrir destino ↗</a>
-            </div>
-          </article>
+      <section class="section" id="destinos">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2>Destinos que despertam sua curiosidade</h2>
+            <p>Seis lugares para começar a imaginar a próxima viagem.</p>
+          </div>
+          <div
+            class="filters reveal"
+            id="filters"
+            role="group"
+            aria-label="Filtrar destinos"
+          >
+            <button class="chip" data-f="Todos" aria-pressed="true">
+              Todos
+            </button>
+            <button class="chip" data-f="Cultura" aria-pressed="false">
+              Cultura
+            </button>
+            <button class="chip" data-f="Natureza" aria-pressed="false">
+              Natureza
+            </button>
+            <button class="chip" data-f="Praias" aria-pressed="false">
+              Praias
+            </button>
+            <button class="chip" data-f="Cidades" aria-pressed="false">
+              Cidades
+            </button>
+          </div>
+          <div class="grid" id="destGrid" aria-live="polite"></div>
+          <p class="empty" id="destEmpty" hidden>
+            Nenhum destino nesta categoria. Escolha outro filtro.
+          </p>
         </div>
       </section>
 
-      <section class="beneficios" id="beneficios">
-        <p class="etiqueta">VIAJAR PODE SER MAIS SIMPLES</p>
+      <section class="section dark" id="experiencias">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2>Escolha o ritmo da sua viagem</h2>
+            <p>Quatro estilos para orientar o roteiro.</p>
+          </div>
+          <div class="editorial">
+            <article class="ex ex-a reveal">
+              <img
+                src="montanhas.jpg"
+                alt="Montanhas nevadas ao pôr do sol"
+                loading="lazy"
+              />
+              <div>
+                <h3>Aventura</h3>
+                <p>
+                  Trilhas, montanhas e exploração para quem viaja de mochila
+                  leve e olhar curioso.
+                </p>
+                <button class="link" data-exp="Natureza">
+                  Explorar destinos de natureza
+                </button>
+              </div>
+            </article>
+            <article class="ex ex-b reveal">
+              <img
+                src="coliseu-roma.jpg"
+                alt="Coliseu de Roma"
+                loading="lazy"
+              />
+              <div>
+                <h3>Cultura</h3>
+                <p>História, arquitetura e gastronomia.</p>
+                <button class="link" data-exp="Cultura">
+                  Explorar destinos culturais
+                </button>
+              </div>
+            </article>
+            <article class="ex ex-c reveal">
+              <img
+                src="maldives.jpg"
+                alt="Bangalôs sobre a água nas Maldivas"
+                loading="lazy"
+              />
+              <div>
+                <h3>Relaxamento</h3>
+                <p>Praias, resorts e descanso de verdade.</p>
+                <button class="link" data-exp="Praias">
+                  Explorar destinos de praia
+                </button>
+              </div>
+            </article>
+            <article class="ex ex-d reveal">
+              <img
+                src="new-york.jpg"
+                alt="Skyline de Nova York ao entardecer"
+                loading="lazy"
+              />
+              <div>
+                <h3>Grandes cidades</h3>
+                <p>Compras, entretenimento e a energia da vida urbana.</p>
+                <button class="link" data-exp="Cidades">
+                  Explorar grandes cidades
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-        <h2>Planejamento tranquilo. Experiências incríveis.</h2>
-
-        <div class="beneficios-lista">
-          <article class="beneficio-card">
-            <span>01</span>
-            <h3>Planejamento personalizado</h3>
-            <p>Ideias de viagem pensadas para seus interesses e objetivos.</p>
-          </article>
-
-          <article class="beneficio-card">
-            <span>02</span>
-            <h3>Destinos selecionados</h3>
+      <section class="section" id="ofertas">
+        <div class="wrap">
+          <div class="head reveal">
+            <h2>Pacotes em destaque</h2>
             <p>
-              Inspiração para descobrir lugares novos e experiências diferentes.
+              Exemplos de roteiros para mostrar como a Voyara organiza uma
+              viagem.
             </p>
-          </article>
-
-          <article class="beneficio-card">
-            <span>03</span>
-            <h3>Suporte próximo</h3>
-            <p>Orientação para ajudar você a organizar sua próxima aventura.</p>
-          </article>
+          </div>
+          <div class="grid grid-3" id="offerGrid"></div>
         </div>
       </section>
 
-      <section class="sobre" id="sobre">
-        <div class="sobre-imagem">
-          <img
-            src="lago.jpg"
-            alt="Lago cercado por montanhas e vegetação"
-          />
-        </div>
-
-        <div class="sobre-conteudo">
-          <p class="etiqueta">SOBRE A HORIZONTE</p>
-
-          <h2>O destino importa. A experiência também.</h2>
-
-          <p>
-            A Horizonte Viagens é uma marca fictícia criada para este projeto de
-            portfólio. Sua proposta é inspirar pessoas a conhecer novos lugares
-            com planejamento e atenção aos detalhes.
-          </p>
-
-          <a href="#contato" class="link-secundario"> Vamos planejar? ↗ </a>
+      <section class="section gray" id="diferenciais">
+        <div class="wrap">
+          <div class="head reveal"><h2>Por que escolher a Voyara?</h2></div>
+          <div class="grid grid-4">
+            <article class="why reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              <h3>Planejamento personalizado</h3>
+              <p>
+                Roteiros montados a partir do seu perfil, ritmo e interesses.
+              </p>
+            </article>
+            <article class="why reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"
+                />
+              </svg>
+              <h3>Experiências selecionadas</h3>
+              <p>Sugestões escolhidas com critério, sem listas genéricas.</p>
+            </article>
+            <article class="why reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16v11H9l-5 4z" />
+              </svg>
+              <h3>Atendimento próximo</h3>
+              <p>Conversa direta para entender o que você espera da viagem.</p>
+            </article>
+            <article class="why reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <h3>Suporte no planejamento</h3>
+              <p>
+                Ajuda para ajustar datas, etapas e dúvidas até o roteiro ficar
+                pronto.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="contato" id="contato">
-        <p class="etiqueta">O MUNDO ESTÁ ESPERANDO</p>
+      <section class="section" id="sobre">
+        <div class="wrap about">
+          <div class="about-img reveal">
+            <img
+              src="viajante.jpg"
+              alt="Viajante com mochila observando uma paisagem"
+              loading="lazy"
+            />
+            <p class="badge">História   </p>
+          </div>
+          <div class="reveal">
+            <h2>Mais do que destinos. Histórias para viver.</h2>
+            <p>
+              A Voyara Travel nasceu, da ideia de que
+              uma boa viagem começa muito antes do embarque: na conversa, na
+              curiosidade e no cuidado com cada detalhe.
+            </p>
+            <p>
+              <strong>Nossa missão:</strong> ajudar as pessoas a descobrir novos
+              lugares e criar experiências significativas por meio de viagens
+              bem planejadas.
+            </p>
+            <ul class="pills">
+              <li>Liberdade</li>
+              <li>Descoberta</li>
+              <li>Confiança</li>
+              <li>Aventura</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <h2>Qual será sua próxima história?</h2>
+      <section class="section dark" id="depoimentos">
+        <div class="wrap narrow">
+          <div class="head reveal">
+            <h2>O que viajantes poderiam dizer</h2>
+            <p class="badge">
+              Depoimentos, para demonstrar o layout
+            </p>
+          </div>
+          <div
+            class="slider reveal"
+            aria-roledescription="carrossel"
+            aria-label="Depoimentos"
+          >
+            <blockquote id="tQuote" aria-live="polite"></blockquote>
+            <p class="who" id="tWho"></p>
+            <div class="slider-ctl">
+              <button class="round" id="tPrev" aria-label="Depoimento anterior">
+                ‹
+              </button>
+              <span id="tCount" aria-hidden="true"></span>
+              <button class="round" id="tNext" aria-label="Próximo depoimento">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <p>Escolha um destino e comece a planejar sua próxima aventura.</p>
-
-        <a href="mailto:contato@exemplo.com" class="botao-principal">
-          Solicitar informações ↗
-        </a>
-
-        <small>
-          Projeto demonstrativo. O contato ainda não está configurado.
-        </small>
+      <section class="section" id="planejar">
+        <div class="wrap narrow">
+          <div class="head reveal">
+            <h2>Vamos planejar sua próxima aventura?</h2>
+            <p>
+              Conte o que você imagina. Formulário,
+              nenhum dado é enviado a uma agência real.
+            </p>
+          </div>
+          <form class="form reveal" id="planForm" novalidate>
+            <div class="field">
+              <label for="fNome">Nome</label
+              ><input id="fNome" autocomplete="name" required /><small
+                class="err"
+                id="fNomeErr"
+              ></small>
+            </div>
+            <div class="field">
+              <label for="fMail">E-mail</label
+              ><input
+                id="fMail"
+                type="email"
+                autocomplete="email"
+                required
+              /><small class="err" id="fMailErr"></small>
+            </div>
+            <div class="field">
+              <label for="fDest">Destino desejado</label
+              ><select id="fDest" required></select
+              ><small class="err" id="fDestErr"></small>
+            </div>
+            <div class="field">
+              <label for="fPer">Período aproximado</label
+              ><input
+                id="fPer"
+                placeholder="Ex.: 7 de julho de 2027 até 25 de Julho de 2027"
+                required
+              /><small class="err" id="fPerErr"></small>
+            </div>
+            <div class="field">
+              <label for="fTrav">Número de viajantes</label
+              ><input
+                id="fTrav"
+                type="number"
+                min="1"
+                max="10"
+                required
+              /><small class="err" id="fTravErr"></small>
+            </div>
+            <div class="field">
+              <label for="fTipo">Tipo de viagem</label
+              ><select id="fTipo" required>
+                <option value="">Selecione</option>
+                <option>Todos</option>
+                <option>Aventura</option>
+                <option>Cultura</option>
+                <option>Relaxamento</option>
+                <option>Grandes cidades</option></select
+              ><small class="err" id="fTipoErr"></small>
+            </div>
+            <div class="field full">
+              <label for="fMsg">Mensagem adicional (opcional)</label
+              ><textarea id="fMsg" rows="4"></textarea>
+            </div>
+            <div class="full">
+              <button class="btn btn-accent" type="submit">
+                Enviar pedido
+              </button>
+              <p
+                class="status"
+                id="formMsg"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
-    <footer class="rodape">
-      <a href="#inicio" class="logo">horizonte<span>.</span></a>
-      <p>Explore o mundo. Descubra novas histórias.</p>
 
-      <p class="copyright">
-        © 2026 Horizonte Viagens. Projeto fictício para portfólio.
+    <footer class="footer" id="contato">
+      <div class="wrap foot-grid">
+        <div>
+          <a href="#inicio" class="logo" data-nav>Voyara<span>Travel</span></a>
+          <p>
+            Transformamos viagens em experiências inesquecíveis. Projeto
+            fictício de demonstração.
+          </p>
+        </div>
+        <div>
+          <h3>Navegação</h3>
+          <a href="#destinos" data-nav>Destinos</a
+          ><a href="#experiencias" data-nav>Experiências</a
+          ><a href="#sobre" data-nav>Sobre nós</a
+          ><a href="#planejar" data-nav>Planejar viagem</a>
+        </div>
+        <div>
+          <h3>Categorias</h3>
+          <button class="flink" data-exp="Cultura">Cultura</button
+          ><button class="flink" data-exp="Natureza">Natureza</button
+          ><button class="flink" data-exp="Praias">Praias</button
+          ><button class="flink" data-exp="Cidades">Cidades</button>
+        </div>
+        <div>
+          <h3>Contato </h3>
+          <p>contato@exemplo.com<br />(00) 0000-0000<br />Endereço fictício</p>
+          <p class="social">
+            <a href="#inicio" data-nav aria-label="Instagram"
+              >Instagram</a
+            ><a href="#inicio" data-nav aria-label="YouTube"
+              >YouTube</a
+            ><a href="#inicio" data-nav aria-label="Facebook"
+              >Facebook</a
+            >
+          </p>
+        </div>
+      </div>
+      <p class="copy">
+        © <span id="year"></span> Voyara Travel. Site fictício para portfólio, Direitos Autorais reservados.
       </p>
     </footer>
+
+    <dialog class="modal" id="modal" aria-labelledby="mTitle">
+      <button class="close" id="mClose" aria-label="Fechar">×</button>
+      <img id="mImg" alt="" />
+      <div class="modal-body">
+        <h3 id="mTitle"></h3>
+        <p class="badge" id="mMeta"></p>
+        <p id="mDesc"></p>
+        <ul id="mList"></ul>
+        <a href="#planejar" class="btn btn-accent" id="mCta"
+          >Planejar algo</a
+        >
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
   </body>
 </html>
